@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="{% static 'css.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style>
+    .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color:
+white;
+}
+
+</style>
+<body>
+   
+  <div class="container">
+    <div class="title">Please Enter the Information</div>
+    <div class="content">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Subject Of the Post</span>
+            <input id="subject" name="subject" type="text" placeholder="spots" required>
+          </div>
+         
+
+          <div class="input-box">
+            <span class="details">Please The Enter the post</span>
+            <textarea id="text" name="text"  placeholder="" required></textarea>
+          </div>
+          <div class="input-box">
+            <span class="details">Upload The post:</span>
+            <input id="image " name ="image" type="file" required>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Create">
+        </div>
+        <div class="topnav">
+          <a class="active" href="/">Home</a>
+          <a href="/profileview">Directory</a>
+          <a href="/jobs_view">Jobs</a>
+          <a href="/bussiness_view">Bussiness</a>
+          <a href="/profileview">Directory</a>
+          {% if user.is_authenticated %}
+          <a href="/profile_single">Profile</a>
+            <a href="/logout">logout</a>
+          {% else %}
+            <a href="/login">login</a>
+          {% endif %}
+          </div> 
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

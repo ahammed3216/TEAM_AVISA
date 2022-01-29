@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>The Web News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}" />
+<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="ie.css" /><![endif]-->
+</head>
+<style>
+   .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color:
+white;
+}
+</style>
+<body>
+  <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/notification_view">News</a>
+    <a href="/jobs_view">Jobs</a>
+    <a href="/profileview">Directory</a>
+    {% if user.is_authenticated %}
+    <a href="/profile_single">Profile</a>
+      <a href="/logout">logout</a>
+    {% else %}
+      <a href="/login">login</a>
+    {% endif %}
+    </div> 
+<!-- BEGIN wrapper -->
+<div id="wrapper">
+  <!-- BEGIN header -->
+  <div id="header">
+ 
+    <div class="break"></div>
+    <div class="logo">
+      <h1><a href="#">News And Official Notifications</a></h1>
+     
+    </div>
+    <div class="ad468x60"> <a href="#"><img src="images/ad468x60.gif" alt="" /></a> </div>
+    
+  <!-- END header -->
+  <!-- BEGIN content -->
+  <div id="content">
+    <!-- begin post -->
+    {% for item in items %}
+    <div class="post">
+      <div class="thumb"><a href="#"><img src="{{ item.image.url }}" width="300" height="100" alt="" /></a></div>
+      <h2><a href="#">{{ item.subject }}</a></h2>
+      <p class="date">Posted on {{ item.created_date }}</p>
+      <p>{{ item.text }}</p>
+      <a class="continue" href="#">posted by {{ item.user.username }}</a> </div>
+      {% endfor %}
+    <!-- end post -->
+    <!-- begin post -->
+    
+    <!-- begin post navigation -->
+    
+    <!-- end post navigation -->
+  </div>
+  <!-- END content -->
+  <!-- BEGIN sidebar -->
+  <div id="sidebar">
+    <!-- begin ads -->
+    <div class="ads"> <a href="#"><img src="images/ad125x125.jpg" alt="" /></a> <a href="#"><img src="images/ad125x125.jpg" alt="" /></a> <a href="#"><img src="images/ad125x125.jpg" alt="" /></a> <a href="#"><img src="images/ad125x125.jpg" alt="" /></a> </div>
+    <!-- end ads -->
+    <!-- begin search -->
+    
+    <!-- end search -->
+    
+</body>
+</html>

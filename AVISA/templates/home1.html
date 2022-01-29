@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--
+Template 2037 Orange Sea
+http://www.tooplate.com/view/2037-orange-sea
+-->
+<link href="{% static 'home/tooplate_style.css' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body id="fp_body">
+
+<div id="tooplate_fp_100_wrapper">
+<div id="tooplate_fp_wrapper">
+
+	<div id="tooplate_top"></div>
+
+	<div id="tooplate_header">
+        
+        <div id="tooplate_menu">
+            <ul>
+                <li><a href="/jobs_view" class="current">Jobs</a></li>
+                <li><a href="/bussiness_view">Bussiness</a></li>
+                <li><a href="/notification_view">Blog</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/profile_single">Profile</a></li>
+                <li><a href="/logout">logout</a></li>
+                {% else %}
+                <li><a href="/login">login</a></li>
+                {% endif %}
+
+            </ul>    	
+        </div> <!-- end of tooplate_menu -->
+    </div> <!-- end of forever header -->
+    
+    <div id="tooplate_middle">
+    	<img src="{% static 'home/images/tooplate_icon.png' %}" alt="Image" />
+    	<div id="mid_title">
+        	Welcome to Our Community
+        </div>
+        <p>This website is the ensure welfare for our society</p>
+        <div id="learn_more"><a href="#"></a></div>
+        <div class="cleaner"></div>
+	</div> <!-- end of middle -->
+    
+    <div id="tooplate_main">
+    
+    	<div class="col_w600 float_l">
+        	<a href="/notification_form"><h2>Post your Blogs</h2> </a>
+          <img src="{% static 'home/images/blogs.jpeg' %}" alt="Image" class="image_wrapper image_fl" />
+            <p><em>You can Post you notificaations and messages in this platform</em></p>
+          	<div class="cleaner h10"></div>
+          
+            
+            <div class="cleaner"></div>
+            <a class="more" href="#">More</a>
+        </div>
+        
+        <div class="col_w300 float_r">
+        	<a href="/jobform"><h2>Post your Jobs</h2></a>
+            <div class="fp_lw_box">
+                <h6><a href="#">Donec sit amet dolor nec sapien</a></h6>
+                <a href="#"><img src="{% static 'home/images/jobs.jpeg' %}" class="image_wrapper" alt="News Image 01" /></a>
+            </div>
+            <div class="fp_lw_box">
+                <h6><a href="/bussiness_form">Post your Bussiness</a></h6>
+                <a href="#"><img src="{% static 'home/images/business.jpeg' %}" class="image_wrapper" alt="News Image 02" /></a>
+            </div>
+          	<a class="more" href="#">More</a>
+        </div>
+    	
+    	<div class="cleaner"></div>
+    </div> <!-- end of main -->
+
+</div> <!-- end of fp wrapper -->
+</div> <!-- end of fp 100% wrapper -->
+
+<div id="tooplate_footer_wrapper">
+	<div id="tooplate_footer">
+    	
+		Copyright © 2048 <a href="#">Company Name</a> - Design: <a href="http://www.tooplate.com">tooplate</a>
+		
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Trinity</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'trinity/css/style.css' %}" type="text/css" media="screen">
+<!--Nivo Slider-->
+<link rel="stylesheet" href="{% static 'trinity/js/slide/default.css' %}" type="text/css" media="screen">
+<link rel="stylesheet" href="{% static 'trinity/js/slide/nivo-slider.css' %}" type="text/css" media="screen">
+<!--FANCY BOX-->
+<script src="{% static 'trinityjs/jquery-1.4.3.min.js' %}"></script>
+<script src="{% static 'trinity/js/fancybox/jquery.fancybox-1.3.4.pack.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'trinity/js/fancybox/jquery.fancybox-1.3.4.css' %}" media="screen">
+<script>
+$(document).ready(function () {
+    $("a#fancybox").fancybox();
+});
+</script>
+<style type="text/css">
+.fancy a img{border:1px solid #BBB; padding:2px; margin:10px 20px 10px 0; vertical-align:top;}
+.fancy a img.last{margin-right:0;}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color:
+white;
+}
+</style>
+<!--FANCY BOX-->
+</head>
+<body>
+  <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/notification_view">News</a>
+    <a href="/jobs_view">Jobs</a>
+    <a href="/bussiness_view">Bussiness</a>
+    {% if user.is_authenticated %}
+    <a href="/profile_single">Profile</a>
+      <a href="/logout">logout</a>
+    {% else %}
+      <a href="/login">login</a>
+    {% endif %}
+    </div> 
+
+<div id="body-wrapper" class="clearfix">
+  <!--start body-wrapper-->
+
+  <div class="box">
+    <h1>Directory</h1>
+    <p>THE CONTACT DETAILS IN OUR VILLAGE IS GIVEN BELOW.</p>
+  </div>
+  {% for profile in profiles %}
+  <div class="one_fourth">
+    <!--start top half content-->
+    <div class="fancy"><a id="fancybox" href="{% static 'trinity/images/210-150-1.png' %}"><img width="100" height ="100" alt="" src="{{ profile.image.url }}"></a></div>
+    <h3>name :{{ profile.first_name }}</h3>
+    <h3>address :{{ profile.address }} </h3>
+    <h3>contact number : {{ profile.phonenumber }}</h3>
+    
+  </div>
+  {% endfor %}
+ 
+  <!--end top half content-->
+ 
+  
+  
+  
+</script>
+</body>
+</html>
